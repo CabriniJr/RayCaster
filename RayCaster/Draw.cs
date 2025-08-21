@@ -10,6 +10,7 @@ namespace RayCaster
 {
     internal class Draw
     {
+        //Desenha o grid do mapa
         public static void drawMap2d(Mapa mapa)
         {
             Raylib_cs.Color cor = new Raylib_cs.Color();
@@ -34,5 +35,15 @@ namespace RayCaster
                 }
             }
         }
+
+        //Desenha o Player e seu vetor
+        public static void drawPlayer(Player player)
+        {
+            Console.WriteLine($"x = {player.eixo.X}  y = {player.eixo.Y}");
+            Raylib.DrawCircle((int)player.eixo.X, (int)player.eixo.Y, 1, Raylib_cs.Color.Gold);
+        }
+
+
+
     }
 }

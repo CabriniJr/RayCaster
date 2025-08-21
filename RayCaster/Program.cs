@@ -27,6 +27,10 @@ class Program
             
         };
 
+        Player player1 = new Player();
+        player1.eixo = (100f, 200f);
+        player1.vetor = (-1f, 10f);
+
      
         Raylib.InitWindow(screenWidth, screenHeight, "raylib-cs • janela cinza");
         Raylib.SetTargetFPS(60);
@@ -36,6 +40,7 @@ class Program
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.Gray);
             Draw.drawMap2d(Mapa1);
+            Draw.drawPlayer(player1);
             Raylib.EndDrawing();
 
             

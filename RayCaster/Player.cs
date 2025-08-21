@@ -8,5 +8,9 @@ namespace RayCaster
 {
     internal class Player
     {
-    }
+        public (float X, float Y) eixo { get; set; }
+        public (float dirX, float dirY) vetor { get; set; }
+
+
+}
 }
