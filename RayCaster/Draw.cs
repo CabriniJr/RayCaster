@@ -18,7 +18,7 @@ namespace RayCaster
             {
                 for(int x = 0; x < mapa.LARGURA; x++)
                 {
-                    if (mapa.Grid[y * mapa.LARGURA + x] == 1)
+                    if (mapa.Grid[x,y] == 1)
                     {
                         cor = Raylib_cs.Color.White;
                     }
@@ -39,8 +39,9 @@ namespace RayCaster
         //Desenha o Player e seu vetor
         public static void drawPlayer(Player player)
         {
-            Console.WriteLine($"x = {player.eixo.X}  y = {player.eixo.Y}");
-            Raylib.DrawCircle((int)player.eixo.X, (int)player.eixo.Y, 1, Raylib_cs.Color.Gold);
+            
+            Raylib.DrawCircle((int)player.eixoX, (int)player.eixoY, 3, Raylib_cs.Color.Gold);
+            Raylib.DrawCircle((int)player.eixoX + (int)(player.dirX*50), (int)player.eixoY + (int)(player.dirY * 50), 2, Raylib_cs.Color.Red);
         }
 
 

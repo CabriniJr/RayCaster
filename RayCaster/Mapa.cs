@@ -10,7 +10,7 @@ namespace RayCaster
     {
 
         public int ALTURA, LARGURA, TAMANHO;
-        public int[] Grid { get; set; }
+        public int[,] Grid { get; set; }
 
         public Mapa(int a, int l, int t)
         {
@@ -18,7 +18,7 @@ namespace RayCaster
             LARGURA = l;
             TAMANHO = t;
 
-            Grid = new int[ALTURA * LARGURA];
+            Grid = new int[LARGURA,ALTURA ];
         }
 
     }
