@@ -20,18 +20,18 @@ class Program
         const int screenHeight = 720;
 
 
-        Mapa Mapa1 = new Mapa(8, 8, 64 );
+        Mapa Mapa1 = new Mapa(8, 10, 30 );
         //Depois fazer o grid do mapa ser assinalado dentro do construtor
         Mapa1.Grid = new int[,]
         {
-            { 1,1,1,1,1,1,1,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,0,0,0,0,0,0,1 },
-            { 1,1,1,1,1,1,1,1 }
+            { 1,1,1,1,1,1,1,1,1,1 },
+            { 1,0,1,0,0,0,0,0,0,1 },
+            { 1,0,1,0,0,0,0,0,0,1 },
+            { 1,0,1,0,0,0,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
+            { 1,0,0,0,1,0,0,0,0,1 },
+            { 1,0,0,0,1,0,0,0,0,1 },
+            { 1,1,1,1,1,1,1,1,1,1 }
             
         };
 
@@ -39,13 +39,11 @@ class Program
         //Define um novo jogador - necessário atribuir suas propriedades!
         Player player1 = new Player();
         player1.eixoX = 100f; player1.eixoY = 200f;
-        player1.dirX = -1;
-        player1.dirY = 0;
-        player1.angulo = 0;
+       
 
      
         //Abre uma janela e configura o fps para 60
-        Raylib.InitWindow(screenWidth, screenHeight, "raylib-cs • janela cinza");
+        Raylib.InitWindow(screenWidth, screenHeight, "RayCasting em c#");
         Raylib.SetTargetFPS(60);
 
         //Loop principal do jogo
@@ -58,6 +56,7 @@ class Program
             
             Draw.drawMap2d(Mapa1);
             Draw.drawPlayer(player1);
+            Draw.raycasting(player1, Mapa1);
             Raylib.DrawFPS(10, 10);
             Raylib.EndDrawing();
 

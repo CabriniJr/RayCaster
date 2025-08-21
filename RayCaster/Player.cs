@@ -17,8 +17,14 @@ namespace RayCaster
         //Direção do vetor - seno e cosseno   
         public float dirX { get; set; }
         public float dirY { get; set; }
+
+        //Plano da câmera
+        public float planoX { get; set; }
+        public float planoY { get; set; }
         public float angulo { get; set; } 
         public float velocidade { get; set; }
+
+        public static float fov = 1;
 
 
         public static void movimento(Player p)

@@ -18,7 +18,7 @@ namespace RayCaster
             LARGURA = l;
             TAMANHO = t;
 
-            Grid = new int[LARGURA,ALTURA ];
+            Grid = new int[ALTURA, LARGURA];
         }
 
     }

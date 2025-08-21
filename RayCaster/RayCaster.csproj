@@ -12,7 +12,6 @@
     <PackageReference Include="OpenTK.Windowing.Desktop" Version="4.9.4" />
     <PackageReference Include="raylib" Version="5.5.0" />
     <PackageReference Include="Raylib-cs" Version="7.0.1" />
-    <PackageReference Include="Raylib-CsLo" Version="4.2.0.9" />
   </ItemGroup>
 
 </Project>
