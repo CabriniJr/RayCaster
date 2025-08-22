@@ -29,7 +29,7 @@ namespace RayCaster
                     {
                         cor = Raylib_cs.Color.Black;
                     }
-                    Raylib.DrawRectangle(x * mapa.TAMANHO, y * mapa.TAMANHO, mapa.TAMANHO - 1, mapa.TAMANHO - 1, cor);
+                    Raylib.DrawRectangle(x * mapa.TAMANHO/4, y * mapa.TAMANHO/4, mapa.TAMANHO/4 - 1, mapa.TAMANHO/4 - 1, cor);
 
 
 
@@ -43,8 +43,8 @@ namespace RayCaster
         public static void drawPlayer(Player player)
         {
 
-            Raylib.DrawCircle((int)player.eixoX, (int)player.eixoY, 3, Raylib_cs.Color.Gold);
-            Raylib.DrawCircle((int)player.eixoX + (int)(player.dirX * 10), (int)player.eixoY + (int)(player.dirY * 10), 2, Raylib_cs.Color.Red);
+            Raylib.DrawCircle((int)player.eixoX/4, (int)player.eixoY/4, 2, Raylib_cs.Color.Gold);
+            Raylib.DrawCircle((int)player.eixoX/4 + (int)(player.dirX * 10)/4, (int)player.eixoY/4 + (int)(player.dirY * 10)/4, 2, Raylib_cs.Color.Red);
         }
 
 
@@ -149,7 +149,7 @@ namespace RayCaster
                 Raylib_cs.Color Cor = Raylib_cs.Color.Green;
                 if(side == 1) Cor = Raylib_cs.Color.DarkGreen; 
 
-                Raylib.DrawLine(i,drawStart,i, drawEnd, Cor);
+                
 
 
                 // ponto de impacto em PIXELS
@@ -157,10 +157,11 @@ namespace RayCaster
                 float hitY = p.eixoY + dirY * distCells * m.TAMANHO;
 
                 // desenha a célula atingida (semi-transparente) + linha do raio
-                Raylib.DrawRectangle(mapX * m.TAMANHO, mapY * m.TAMANHO, m.TAMANHO, m.TAMANHO, new Raylib_cs.Color(255, 0, 0, 80));
-                Raylib.DrawLine((int)p.eixoX, (int)p.eixoY, (int)hitX, (int)hitY, Raylib_cs.Color.Red);
-                Raylib.DrawCircle((int)hitX, (int)hitY, 2.0f, Raylib_cs.Color.Purple);
-       
+                Raylib.DrawRectangle(mapX * m.TAMANHO/4, mapY * m.TAMANHO/4, m.TAMANHO/4, m.TAMANHO/4, new Raylib_cs.Color(255, 0, 0, 80));
+                Raylib.DrawLine((int)p.eixoX/4, (int)p.eixoY/4, (int)hitX/4, (int)hitY/4, Raylib_cs.Color.Red);
+                Raylib.DrawCircle((int)hitX/4, (int)hitY/4, 2.0f, Raylib_cs.Color.Purple);
+                Raylib.DrawLine(i, drawStart, i, drawEnd, Cor);
+
 
             }
             

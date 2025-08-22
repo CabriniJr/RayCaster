@@ -24,9 +24,15 @@ namespace RayCaster
         public float angulo { get; set; } 
         public float velocidade { get; set; }
 
-        public static float fov = 1;
+        public static float fov = 0.80f;
 
+        public Player()
+        {
+            eixoX = 100f; eixoY = 200f;
+           dirX = -1; dirY = 0;
+        }
 
+        
         public static void movimento(Player p)
         {
             p.velocidade = 1.0f;
@@ -53,6 +59,7 @@ namespace RayCaster
 
 
             Console.WriteLine($"x =\t {p.eixoX}\ty = {p.eixoY}");
+            Console.WriteLine($"x =\t {((int)p.eixoX/64 +1)+p.dirX}\ty = {((int)p.eixoY/64 +1)+p.dirY}");
             Console.WriteLine($"Dirx =\t {p.dirX}\tDiry = {p.dirY}");
             Console.WriteLine($"Ang \n {p.angulo}");
         }
