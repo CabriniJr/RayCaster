@@ -59,7 +59,7 @@ namespace RayCaster
             p.planoY = p.dirX * Player.fov;
 
 
-            for(int i = 200; i <1200; i++)
+            for(int i = 0; i <Raylib.GetScreenWidth(); i++)
             {
                 const float EPS = 1e-6f;
 
@@ -159,9 +159,9 @@ namespace RayCaster
                 float hitY = p.eixoY + dirY * distCells * m.TAMANHO;
 
                 // desenha a célula atingida (semi-transparente) + linha do raio
-                Raylib.DrawRectangle(mapX * m.TAMANHO/4, mapY * m.TAMANHO/4, m.TAMANHO/4, m.TAMANHO/4, new Raylib_cs.Color(255, 0, 0, 80));
-                Raylib.DrawLine((int)p.eixoX/4, (int)p.eixoY/4, (int)hitX/4, (int)hitY/4, Raylib_cs.Color.Red);
-                Raylib.DrawCircle((int)hitX/4, (int)hitY/4, 2.0f, Raylib_cs.Color.Purple);
+                //Raylib.DrawRectangle(mapX * m.TAMANHO/4, mapY * m.TAMANHO/4, m.TAMANHO/4, m.TAMANHO/4, new Raylib_cs.Color(255, 0, 0, 80));
+                //Raylib.DrawLine((int)p.eixoX/4, (int)p.eixoY/4, (int)hitX/4, (int)hitY/4, Raylib_cs.Color.Red);
+                //Raylib.DrawCircle((int)hitX/4, (int)hitY/4, 2.0f, Raylib_cs.Color.Purple);
                 
 
 

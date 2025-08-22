@@ -52,19 +52,19 @@ namespace RayCaster
             //Frente e tras
             if (Raylib.IsKeyDown(KeyboardKey.W))
             {
-                if (m.Grid[(int)(p.eixoY + p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
-                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX + p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
+                if (m.Grid[(int)(p.eixoY + p.dirY * 10) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX + p.dirX * 10) / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
             }
             if (Raylib.IsKeyDown(KeyboardKey.S))
             {
-                if (m.Grid[(int)(p.eixoY - p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
-                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX - p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
+                if (m.Grid[(int)(p.eixoY - p.dirY * 10) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX - p.dirX * 10) / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
             }
 
             //Strafe 
             if (Raylib.IsKeyDown(KeyboardKey.D))
             {
-                if (m.Grid[(int)(p.eixoY + p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
+                if (m.Grid[(int)(p.eixoY + p.dirY * 10) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
                 if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX + p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
             }
                 
