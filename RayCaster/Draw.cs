@@ -147,9 +147,11 @@ namespace RayCaster
                 int drawEnd = lineHeight / 2 + Raylib.GetScreenHeight() / 2;
                 if (drawEnd >= Raylib.GetScreenHeight()) drawEnd = Raylib.GetScreenHeight() - 1;
                 Raylib_cs.Color Cor = Raylib_cs.Color.Green;
-                if(side == 1) Cor = Raylib_cs.Color.DarkGreen; 
+                if(side == 1) Cor = Raylib_cs.Color.DarkGreen;
+                Raylib.DrawLine(i, drawStart, i, drawEnd, Cor);
 
-                
+
+
 
 
                 // ponto de impacto em PIXELS
@@ -160,7 +162,7 @@ namespace RayCaster
                 Raylib.DrawRectangle(mapX * m.TAMANHO/4, mapY * m.TAMANHO/4, m.TAMANHO/4, m.TAMANHO/4, new Raylib_cs.Color(255, 0, 0, 80));
                 Raylib.DrawLine((int)p.eixoX/4, (int)p.eixoY/4, (int)hitX/4, (int)hitY/4, Raylib_cs.Color.Red);
                 Raylib.DrawCircle((int)hitX/4, (int)hitY/4, 2.0f, Raylib_cs.Color.Purple);
-                Raylib.DrawLine(i, drawStart, i, drawEnd, Cor);
+                
 
 
             }

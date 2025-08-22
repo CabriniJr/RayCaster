@@ -25,12 +25,12 @@ class Program
         Mapa1.Grid = new int[,]
         {
             { 1,1,1,1,1,1,1,1,1,1 },
-            { 1,0,1,0,0,0,0,0,0,1 },
-            { 1,0,1,0,0,1,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
             { 1,0,0,0,0,1,0,0,0,1 },
-            { 1,0,0,0,0,1,0,0,0,1 },
-            { 1,0,0,0,1,0,0,0,0,1 },
-            { 1,0,0,0,1,0,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
+            { 1,0,0,0,0,0,0,0,0,1 },
             { 1,1,1,1,1,1,1,1,1,1 }
             
         };
@@ -49,7 +49,7 @@ class Program
         //Loop principal do jogo
         while (!Raylib.WindowShouldClose())
         {
-            Player.movimento(player1);
+            Player.movimento(player1, Mapa1);
             //Renderizações aqui - classe Draw especializada para isso - meta: inserir o objeto na fuñção e ele renderizar
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.Gray);

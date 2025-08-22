@@ -32,10 +32,10 @@ namespace RayCaster
            dirX = -1; dirY = 0;
         }
 
-        
-        public static void movimento(Player p)
+
+        public static void movimento(Player p, Mapa m)
         {
-            p.velocidade = 1.0f;
+
             //Angulação do vetor
             if (Raylib.IsKeyDown(KeyboardKey.Right))
             {
@@ -50,18 +50,46 @@ namespace RayCaster
                 p.dirX = MathF.Cos(p.angulo); p.dirY = MathF.Sin(p.angulo);
             }
             //Frente e tras
-            if (Raylib.IsKeyDown(KeyboardKey.W)) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
-            if (Raylib.IsKeyDown(KeyboardKey.S)) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
-            
+            if (Raylib.IsKeyDown(KeyboardKey.W))
+            {
+                if (m.Grid[(int)(p.eixoY + p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX + p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY += p.dirY * p.velocidade; p.eixoX += p.dirX * p.velocidade; }
+            }
+            if (Raylib.IsKeyDown(KeyboardKey.S))
+            {
+                if (m.Grid[(int)(p.eixoY - p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX - p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY -= p.dirY * p.velocidade; p.eixoX -= p.dirX * p.velocidade; }
+            }
+
             //Strafe 
-            if (Raylib.IsKeyDown(KeyboardKey.D)) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
-            if (Raylib.IsKeyDown(KeyboardKey.A)) { p.eixoY -= p.dirX * p.velocidade; p.eixoX -= -p.dirY * p.velocidade; }
+            if (Raylib.IsKeyDown(KeyboardKey.D))
+            {
+                if (m.Grid[(int)(p.eixoY + p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX + p.dirX * p.velocidade) / m.TAMANHO] == 0) { p.eixoY += p.dirX * p.velocidade; p.eixoX += -p.dirY * p.velocidade; }
+            }
+                
+            if (Raylib.IsKeyDown(KeyboardKey.A))
+            {
+                if (m.Grid[(int)(p.eixoY - p.dirY * p.velocidade) / m.TAMANHO, (int)p.eixoX / m.TAMANHO] == 0){p.eixoY -= p.dirX * p.velocidade; p.eixoX -= -p.dirY * p.velocidade; }
+                if (m.Grid[(int)p.eixoY / m.TAMANHO, (int)(p.eixoX - p.dirX * p.velocidade) / m.TAMANHO] == 0){ p.eixoY -= p.dirX * p.velocidade; p.eixoX -= -p.dirY * p.velocidade; }
+            }
+            
+
+            if (Raylib.IsKeyDown(KeyboardKey.LeftShift)) { p.velocidade = 5f; } else { p.velocidade = 1.0f;  }
 
 
             Console.WriteLine($"x =\t {p.eixoX}\ty = {p.eixoY}");
-            Console.WriteLine($"x =\t {((int)p.eixoX/64 +1)+p.dirX}\ty = {((int)p.eixoY/64 +1)+p.dirY}");
+            Console.WriteLine($"x =\t {(p.eixoX/64)+p.dirX*p.velocidade}\ty = {(p.eixoY/64)+p.dirY}");
             Console.WriteLine($"Dirx =\t {p.dirX}\tDiry = {p.dirY}");
             Console.WriteLine($"Ang \n {p.angulo}");
+
+            
+
+            
+
+
+
+
         }
 
 
